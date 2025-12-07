@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ title if title else "Smart Fitness" }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="{{ page_class if page_class else '' }} fade-in">
+
+    {% if session.get('logged_in') %}
+        {% include 'navbar_light.html' %}
+    {% endif %}
+
+    <div class="page-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, msg in messages %}
+              <div style="padding:8px 12px; border-radius:8px; margin-bottom:10px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.06);">
+                <strong>{{ msg }}</strong>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

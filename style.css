@@ -1,0 +1,70 @@
+/* --- Purple Exam Theme (single file) --- */
+:root{
+  --bg1:#f3eefb;
+  --purple1:#6f4bd8;
+  --purple2:#8a63d6;
+  --accent:#b49bff;
+  --card:#ffffff;
+  --muted:#6b6b6b;
+  --logout:#d9534f;
+}
+
+/* global */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: linear-gradient(180deg,#f7f3ff,#f3eefb);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+}
+.page-container{max-width:980px;margin:20px auto;padding:0 16px}
+
+/* navbar */
+.navbar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 18px;border-radius:8px;
+  background:linear-gradient(90deg, rgba(111,75,216,0.95), rgba(138,99,214,0.95));
+  color:white;margin:10px 16px;
+  box-shadow:0 8px 30px rgba(100,60,200,0.12);
+}
+.nav-left a, .nav-right a{color:white;margin-right:12px;font-weight:600}
+.logout-btn{background:var(--logout);padding:8px 12px;border-radius:8px;color:white}
+
+/* cards */
+.card{
+  background:var(--card);
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 10px 30px rgba(90,70,140,0.06);
+  margin-bottom:16px;
+}
+
+/* home card */
+.home-card{border-radius:18px;padding:28px;}
+
+/* metrics */
+.metric-cards{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}
+.metric-card{width:180px;padding:14px;border-radius:14px;text-align:center;box-shadow:0 6px 18px rgba(70,40,140,0.06)}
+
+/* graph box */
+.graph-box{background:white;border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(60,40,120,0.04)}
+
+/* buttons */
+.btn{background:var(--purple2);color:white;padding:10px 14px;border:none;border-radius:10px;font-weight:600;cursor:pointer}
+.btn-secondary{background:#ffffff;color:var(--purple2);border:none}
+
+/* small */
+.table{width:100%;border-collapse:collapse}.table th,.table td{padding:10px;border-bottom:1px solid #eee}
+
+/* forms */
+input, select{padding:10px;border-radius:10px;border:1px solid #e6e6e6;width:100%;margin:8px 0}
+
+/* quote */
+.quote-box{padding:8px 12px;background:linear-gradient(90deg,#fff,#f7f3ff);border-radius:10px;box-shadow:0 6px 18px rgba(100,70,180,0.04)}
+
+/* responsive */
+@media(max-width:720px){
+  .metric-card{width:140px}
+  .navbar{flex-direction:column;gap:8px;align-items:flex-start}
+}

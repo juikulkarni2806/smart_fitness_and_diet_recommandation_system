@@ -1,0 +1,12 @@
+<nav class="navbar scale-in">
+  <div class="nav-left">
+    <a href="{{ url_for('dashboard') }}">🏠 Home</a>
+    <a href="{{ url_for('diet') }}">🥗 Diet</a>
+    <a href="{{ url_for('workout') }}">💪 Workout</a>
+    <a href="{{ url_for('progress') }}">📊 Progress</a>
+    <a href="{{ url_for('profile') }}">👤 Profile</a>
+  </div>
+  <div class="nav-right">
+    <a class="logout-btn" href="{{ url_for('logout') }}">Logout</a>
+  </div>
+</nav>

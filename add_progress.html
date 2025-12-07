@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<div style="max-width:520px; margin:auto;">
+  <div class="card">
+    <h2 style="margin-top:0;">Add Progress</h2>
+    <form method="POST">
+      <label>Date</label>
+      <input type="date" name="date" value="{{ today }}">
+      <label>Steps</label>
+      <input name="steps" type="number" placeholder="e.g. 5000">
+      <label>Water (glasses)</label>
+      <input name="water" type="number" placeholder="e.g. 8">
+      <label>Workout (minutes)</label>
+      <input name="workout" type="number" placeholder="e.g. 30">
+      <button class="btn" type="submit" style="margin-top:10px;">Save Progress</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

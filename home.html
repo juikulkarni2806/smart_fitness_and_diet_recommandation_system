@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="min-height:70vh; display:flex; align-items:center; justify-content:center;">
+  <div class="card home-card" style="max-width:1000px; text-align:center; background: linear-gradient(135deg,#3a0ca3,#7209b7); color:white;">
+    <h1 style="margin:8px 0 6px;">Smart Fitness & Diet Recommandation System</h1>
+    <p style="opacity:1.00; margin-bottom:30px;">Personalized diet & workout plans with progress tracking.</p>
+
+    <div style="display:flex; gap:15px; justify-content:center; margin-top:12px;">
+      <a href="{{ url_for('register') }}"><button class="btn">Create Account</button></a>
+      <a href="{{ url_for('login') }}"><button class="btn btn-secondary">Login</button></a>
+    </div>
+
+    <p style="margin-top:100px; opacity:0.9; font-size:14px;"></p>
+  </div>
+</div>
+{% endblock %}

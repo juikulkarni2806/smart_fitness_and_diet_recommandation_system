@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="text-align:center; margin-bottom:10px;">
+  <h2 style="color:white; margin:6px 0;">Welcome, {{ user['name'] }} 👋</h2>
+  <p style="color:white; opacity:0.9;">BMI: <strong>{{ user['bmi'] or '—' }}</strong> • Goal: <strong>{{ user['goal'] or 'general' }}</strong></p>
+</div>
+
+<div class="metric-cards" style="justify-content:center; margin-bottom:16px;">
+  <div class="metric-card" style="background:#b49bff; color:#2b0b6f;">
+    <h4 style="margin:6px 0;">Steps</h4>
+    <div style="font-size:26px; font-weight:700;">{{ summary.steps }}</div>
+    <div style="font-size:12px; color:rgba(0,0,0,0.5); margin-top:6px;">Today's steps</div>
+  </div>
+
+  <div class="metric-card" style="background:#cdb3ff; color:#2b0b6f;">
+    <h4 style="margin:6px 0;">Water</h4>
+    <div style="font-size:26px; font-weight:700;">{{ summary.water }}</div>
+    <div style="font-size:12px; color:rgba(0,0,0,0.5); margin-top:6px;">Glasses</div>
+  </div>
+
+  <div class="metric-card" style="background:#e7dbff; color:#2b0b6f;">
+    <h4 style="margin:6px 0;">Workout</h4>
+    <div style="font-size:26px; font-weight:700;">{{ summary.workout }}</div>
+    <div style="font-size:12px; color:rgba(0,0,0,0.5); margin-top:6px;">Minutes</div>
+  </div>
+</div>
+
+<div class="graph-box" style="max-width:860px; margin:auto;">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h3 style="margin:0;">Weekly Progress</h3>
+    <div class="quote-box" style="background:rgba(255,255,255,0.9); color:#2b0b6f;">{{ quote }}</div>
+  </div>
+  <div style="height:320px; margin-top:12px;">
+    <canvas id="dashboardChart"></canvas>
+  </div>
+</div>
+
+<script>
+  const labels = {{ chart_labels|tojson }};
+  const steps = {{ chart_steps|tojson }};
+  const water = {{ chart_water|tojson }};
+  const workout = {{ chart_workout|tojson }};
+
+  const ctx = document.getElementById('dashboardChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        { label: 'Steps', data: steps, borderColor: '#6f4bd8', backgroundColor: 'rgba(111,75,216,0.08)', tension:0.2, pointRadius:3 },
+        { label: 'Water', data: water, borderColor: '#b49bff', backgroundColor: 'rgba(180,155,255,0.06)', tension:0.2, pointRadius:3 },
+        { label: 'Workout', data: workout, borderColor: '#8a63d6', backgroundColor: 'rgba(138,99,214,0.06)', tension:0.2, pointRadius:3 }
+      ]
+    },
+    options: { responsive:true, maintainAspectRatio:false, scales:{ y:{ beginAtZero:true } } }
+  });
+</script>
+
+{% endblock %}

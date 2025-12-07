@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="min-height:70vh; display:flex; align-items:center; justify-content:center;">
+  <div class="card" style="max-width:420px;">
+    <h2 style="margin-top:0;">Login</h2>
+    <form method="POST">
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button class="btn" type="submit">Login</button>
+    </form>
+    <p style="margin-top:10px;">New? <a href="{{ url_for('register') }}">Register here</a></p>
+  </div>
+</div>
+{% endblock %}
